@@ -1,0 +1,235 @@
+<!doctype html>
+
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>IPI - Cours de Java 240</title>
+    
+    <meta name="description" content="" />
+    <meta name="author" content="Pierre-Julien VILLOUD" />
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-4-navbar.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/idea.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="my-navbar">
+  <a class="navbar-brand" href="index.html">
+    <img src="img/ipi.jpg" width="30" height="30" alt=""> Cours Java 240
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav nav-pills mr-auto">
+      
+    </ul>
+    <span class="navbar-text">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <form class="form-inline my-2 my-lg-0" onsubmit="search()">
+              <div class="input-group">
+                <input id="searchInput" class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="searchNb"></span>
+                  <button class="btn btn-primary" type="submit"><i class="fa fa-icon fa-search"></i></button>
+                </div>
+              </div>
+              
+              
+            </form>
+            &nbsp;
+            <a class="btn btn-primary" href="https://github.com/pjvilloud/ipi-java-240-ex" target="_blank"><i class="fa fa-icon fa-gamepad"></i></a>
+            &nbsp;
+            <a class="btn btn-primary" href="mailto:pjvilloud@protonmail.com"><i class="fa fa-icon fa-envelope"></i></a>
+            &nbsp;
+            <a class="btn btn-primary" href="https://github.com/pjvilloud" target="_blank"><i class="fa fa-icon fa-github"></i></a>
+            &nbsp;
+            <a class="btn btn-primary" href="https://linkedin.com/pjvilloud" target="_blank"><i class="fa fa-icon fa-linkedin"></i></a>&nbsp;
+            <a class="btn btn-primary" href="#" id="numSlide">1</a>
+        </div>
+    </span>
+  </div>
+</nav>
+<div class="progress">
+  <div id="progress" class="progress-bar" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<div class="container-fluid" id="impress">
+
+  <div id="accueil" class="step slide" data-rel-x="0" data-y=0>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+          <h1 class="display-3">Bienvenue !</h1>
+          <p class="lead">
+              <h2>Pierre-Julien VILLOUD</h2>
+              <div class="big-top-margin">
+                  <img src="img/pjvilloud.jpg" class="img-bienvenue rounded mx-auto d-block" alt="Pierre-Julien VILLOUD">
+              </div>
+              <div class="big-top-margin">
+                  <h3><i class="fa fa-icon fa-envelope-square"></i>&nbsp;<a href="mailto:pjvilloud@protonmail.com">pjvilloud@protonmail.com</a></h3>
+                  <h3><i class="fa fa-icon fa-github-square"></i>&nbsp;<a href="https://github.com/pjvilloud" target="_blank">https://github.com/pjvilloud</a></h3>
+                  <h3><i class="fa fa-icon fa-linkedin-square"></i>&nbsp;<a href="https://linkedin.com/pjvilloud" target="_blank">https://linkedin.com/pjvilloud</a></h3>
+                  <h3><i class="fa fa-icon fa-globe"></i>&nbsp;<a href="http://pjvilloud.github.io" target="_blank">http://pjvilloud.github.io</a></h3>
+              </div>
+          </p>
+        </div>
+      </div>
+  </div>
+  
+  <div id="spring" class="step slide">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid text-center">
+        <h1 class="display-3">Le framework Spring</h1>
+        <div class="container-fluid">
+          <div class="alert alert-primary small-font" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+          </div>
+        </div>
+        <div class="container-fluid small-font">
+          <div class="row">
+            
+          </div>      
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="spring-historique" class="step slide">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid text-center">
+        <h1 class="display-3">Historique</h1>
+        <div class="container-fluid">
+          <div class="alert alert-primary small-font" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+          </div>
+        </div>
+        <div class="container-fluid small-font">
+          <div class="row">
+            
+          </div>      
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="spring-projets" class="step slide">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid text-center">
+        <h1 class="display-3">Les différents projets</h1>
+        <div class="container-fluid">
+          <div class="alert alert-primary small-font" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+          </div>
+        </div>
+        <div class="container-fluid small-font">
+          <div class="row">
+            
+          </div>      
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="spring-ioc" class="step slide">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid text-center">
+        <h1 class="display-3">L'inversion de contrôle (IoC)</h1>
+        <div class="container-fluid">
+          <div class="alert alert-primary small-font" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+          </div>
+        </div>
+        <div class="container-fluid small-font">
+          <div class="row">
+            
+          </div>      
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="spring-di" class="step slide">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid text-center">
+        <h1 class="display-3">L'injection de dépendances (DI)</h1>
+        <div class="container-fluid">
+          <div class="alert alert-primary small-font" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+          </div>
+        </div>
+        <div class="container-fluid small-font">
+          <div class="row">
+            
+          </div>      
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="springcore" class="step slide">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid text-center">
+        <h1 class="display-3">Spring Core</h1>
+        <div class="container-fluid">
+          <div class="alert alert-primary small-font" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+          </div>
+        </div>
+        <div class="container-fluid small-font">
+          <div class="row">
+            
+          </div>      
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="springcore-applicationcontext" class="step slide">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid text-center">
+        <h1 class="display-3"><code>ApplicationContext</code></h1>
+        <div class="container-fluid">
+          <div class="alert alert-primary small-font" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+          </div>
+        </div>
+        <div class="container-fluid small-font">
+          <div class="row">
+            
+          </div>      
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/impress.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-4-navbar.js"></script>
+<script src="js/highlight.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/mark.min.js"></script>
+<script src="js/script.js"></script>
+<script src="js/search.js"></script>
+
