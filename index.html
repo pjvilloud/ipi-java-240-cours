@@ -100,13 +100,16 @@
         <h1 class="display-3">Le framework Spring</h1>
         <div class="container-fluid">
           <div class="alert alert-primary small-font" role="alert">
-              <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;Le framework Spring est un framework Java Open Source qui permet aux développeurs de se concentrer sur leur application en laissant la gestion des éléments d'infrastructure au framework.
           </div>
         </div>
-        <div class="container-fluid small-font">
-          <div class="row">
-            
-          </div>      
+        <div class="container small-font">
+          <img width="1000" src="img/springframework.png">     
+        </div>
+        <div class="container-fluid">
+          <div class="alert alert-primary small-font" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;L'objectif est de développer rapidement et avec peu de code des applications riches et fiables dans un contexte d'entreprise.
+          </div>
         </div>
       </div>
     </div>
@@ -118,13 +121,39 @@
         <h1 class="display-3">Historique</h1>
         <div class="container-fluid">
           <div class="alert alert-primary small-font" role="alert">
-              <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;Spring a été créé en 2003 pour fonctionner de manière complémentaire avec le standard J2EE de l'époque, alors relativement complexe. L'idée était de faciliter les tâches communes et de promouvoir les bonnes pratiques de développement.
           </div>
         </div>
         <div class="container-fluid small-font">
           <div class="row">
+            <div class="col-2 text-right">
+              <img src="img/springhistory2.png" height="615">
+            </div> 
+            <div class="col-10 text-left">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <b>0.9</b> - Première version !
+                </li>
+                <li class="list-group-item"><b>1.0</b> - </li>
+                <li class="list-group-item"><b>2.0</b> - Simplification des configurations XML, support de Groovy, de JPA</li>
+                <li class="list-group-item"><b>2.5</b> - Configuration par annotations, support de Java 6, auto-détection des composants</li>
+                <li class="list-group-item"><b>3.0</b> - Spring expression language, support des bases de données intégrées, validation des <em>model</em>, support de REST</li>
+                <li class="list-group-item"><b>3.1</b> - Profils de beans, abstraction de cache</li>
+                <li class="list-group-item"><b>4.0</b> - Support de Java 8, apparition de Spring Boot</li>
+                <li class="list-group-item"><b>4.2</b> - Améliorations du Code Container et de la couche d'accès aux données</li>
+                <li class="list-group-item"><b>4.3</b> - Améliorations du cache et des modules webs</li>
+                <li class="list-group-item"><b>5.0</b> - Spring WebFlux, support de Kotlin</li>
+              </ul>
+            </div> 
             
-          </div>      
+          </div>
+               
+        </div>
+
+        <div class="container-fluid">
+          <div class="alert alert-primary small-font" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;Aujourd'hui, les infrastructures ont évolué et les applications sont maintenant développées en <em>devops</em> pour être déployées sur des plateformes de cloud. Spring a suivi cette évolution et le framework s'est enrichi de fonctionnalités qui vont dans ce sens.
+          </div>
         </div>
       </div>
     </div>
@@ -134,15 +163,8 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="container-fluid text-center">
         <h1 class="display-3">Les différents projets</h1>
-        <div class="container-fluid">
-          <div class="alert alert-primary small-font" role="alert">
-              <i class="fa fa-icon fa-info-circle"></i>&nbsp;
-          </div>
-        </div>
-        <div class="container-fluid small-font">
-          <div class="row">
-            
-          </div>      
+        <div class="container small-font big-img">
+            <img src="img/springprojects.png">
         </div>
       </div>
     </div>
@@ -154,13 +176,16 @@
         <h1 class="display-3">L'inversion de contrôle (IoC)</h1>
         <div class="container-fluid">
           <div class="alert alert-primary small-font" role="alert">
-              <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;L'inversion de contrôle ou <em>IoC</em> est au cœur de Spring. C'est le framework qui coordonne le flot d'exécution du programme et qui appelle vos propres composants logiciels.
           </div>
         </div>
-        <div class="container-fluid small-font">
-          <div class="row">
-            
-          </div>      
+        <div class="container-fluid small-font big-top-margin">
+          <img src="img/K1337.png">
+        </div>
+        <div class="container-fluid big-top-margin">
+          <div class="alert alert-primary small-font" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;On parle <em>d'inversion de contrôle</em> car c'est traditionnellement l'inverse en programmation classique. Vous coordonnez le flot d'exécution et vous gérez le cycle de vie et les dépendances de vos composants.
+          </div>
         </div>
       </div>
     </div>
@@ -172,13 +197,32 @@
         <h1 class="display-3">L'injection de dépendances (DI)</h1>
         <div class="container-fluid">
           <div class="alert alert-primary small-font" role="alert">
-              <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;C'est une implémentation de l'inversion de contrôle utilisée dans les langages orientés objet. Le principe est qu'au lieu de coder en dur les dépendances entre les composants, vous déléguez l'instantiation et la gestion de ces composants au framework qui pourra vous les fournir à la demande.
           </div>
         </div>
-        <div class="container-fluid small-font">
+        <div class="container little-top-margin smaller-font">
           <div class="row">
-            
-          </div>      
+            <div class="col-5 big-top-margin">
+              <img src="img/traditional-vs-di.gif">    
+            </div>
+            <div class="col-7">
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-success">Réduction au maximum des dépendances entre les composants logiciels</li>
+                <li class="list-group-item list-group-item-success">Maintenance et évolutions plus maitrisées</li>
+                <li class="list-group-item list-group-item-success">Utilisation possible d'implémentations différentes d'un composant sans tout modifier.</li>
+                <li class="list-group-item list-group-item-success">Plus de gestion manuelle du cycle de vie des composants.</li>
+                <li class="list-group-item list-group-item-success">Patterns de développement comme le <em>singleton</em> utilisables très facilement.</li>
+                <li class="list-group-item list-group-item-success">Code plus facile à tester (mocks), à lire et à réutiliser.</li>
+                <li class="list-group-item list-group-item-warning">Ajout d'une dépendance à un framework potentiellement <em>lourd</em> ?</li>
+                <li class="list-group-item list-group-item-warning">Perte de contrôle ?</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="alert alert-primary small-font little-top-margin" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;En réalité, l'injection de dépendances vous permet de vous concentrer sur votre cœur de métier et de produire du code de meilleure qualité !
+          </div>
         </div>
       </div>
     </div>
@@ -190,14 +234,112 @@
         <h1 class="display-3">Spring Core</h1>
         <div class="container-fluid">
           <div class="alert alert-primary small-font" role="alert">
-              <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;Spring Core est un des projets du framework Spring mais en est le socle.
+          </div>
+        </div>
+        <div class="container-fluid small-font">
+          <img src="img/springcore.png">      
+        </div>
+        <div class="container-fluid small-font">
+          <div class="row">
+            <div class="col-6">
+              <em>Core</em> et <em>Beans</em> sont les modules qui implémentent l'inversion de contrôle et l'injection de dépendences.
+            </div>       
+            <div class="col-3">
+              <em>Context</em> est une sorte de registre permettant de construire, stocker et injecter les différents composants de votre application.
+            </div>       
+            <div class="col-3">
+              <em>SpEL</em> ou <em>Spring Expression Language</em> permet de consulter et manipuler le <em>graph d'objets</em> à l'exécution.
+            </div>       
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="springcore-bean" class="step slide">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid text-center">
+        <h1 class="display-3">Les <code>Beans</code> <img src="img/coffee_bean.png" height="90"></h1>
+        <div class="container-fluid">
+          <div class="alert alert-primary small-font" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;Les <em>beans</em> sont tout simplement les objets gérés par le conteneur Spring.
+          </div>
+        </div>
+        <div class="container-fluid small-font">
+          <ul class="list-group">
+            <li class="list-group-item">Un bean est instantié, géré et détruit par le conteneur Spring.</li>
+            <li class="list-group-item">Un bean est créé en fonction d'une <em>configuration de bean</em> à fournir au conteneur Spring.</li>
+          </ul>     
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="springcore-beanconfiguration" class="step slide">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid text-center">
+        <h1 class="display-3">Les configurations de <code>Beans</code> <img src="img/coffee_bean.png" height="90"></h1>
+        <div class="container-fluid">
+          <div class="alert alert-primary small-font" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;Voici comment définir un <em>bean</em> dans une application Spring (XML et annotations Java) : 
           </div>
         </div>
         <div class="container-fluid small-font">
           <div class="row">
-            
-          </div>      
+            <div class="col-6">
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-secondary">Eléments à définir</li>
+                <li class="list-group-item">La classe</li>
+                <li class="list-group-item">Le nom</li>
+                <li class="list-group-item">Le scope</li>
+                <li class="list-group-item">Les éventuelles propriétés</li>
+                <li class="list-group-item">L'initialisation/destruction</li>
+              </ul> 
+            </div> 
+            <div class="col-6 text-left">
+              <pre><code class="java">//Soit la classe suivante que l'on faire gérer par Spring
+public class BeanExemple{
+  private String msg;
+  private String nom;
+  public void getNom(){return nom;}
+  public void setNom(String n){nom = n;}
+  public BeanExemple(String m){msg=m;}
+  public void init() {}
+  public void cleanup() {}
+}</code></pre></div>
+          </div>
         </div>
+        <hr>
+        <div class="container-fluid small-font">
+          <div class="row">
+            <div class="col-6 text-left">
+              <pre><code class="xml">&lt;?xml version = "1.0" encoding = "UTF-8"?&gt;
+  &lt;beans xmlns = "..." ... &gt;
+    &lt;bean name="beanExemple" 
+      class="com.ipiecoles.BeanExemple"
+      scope = "prototype"
+      init-method = "init" destroy-method = "cleanup"&gt;
+      &lt;constructor-arg index = "1" value = "Hello "/&gt;
+      &ltproperty name = "nom" value = "World"/&gt;
+    &lt;bean/&gt;
+  &lt;/beans&gt;</code></pre>
+            </div>
+            <div class="col-6 text-left">
+              <pre><code class="java">@Configuration
+public class SpringConfig {
+  @Bean(initMethod = "init", destroyMethod = "cleanup")
+  @Scope("prototype")
+  public BeanExemple beanExemple(){
+    BeanExemple be = new BeanExemple("Hello ");
+    be.setNom("World");
+    return be;
+  }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
