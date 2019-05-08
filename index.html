@@ -210,7 +210,7 @@
         <h1 class="display-3">L'injection de dépendances (DI)</h1>
         <div class="container-fluid">
           <div class="alert alert-primary small-font" role="alert">
-              <i class="fa fa-icon fa-info-circle"></i>&nbsp;C'est une implémentation de l'inversion de contrôle utilisée dans les langages orientés objet. Le principe est qu'au lieu de coder en dur les dépendances entre les composants, vous déléguez l'instantiation et la gestion de ces composants au framework qui les stockera dans sont <b>conteneur</b> et pourra vous les <b>fournir</b> à la demande.
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;C'est une implémentation de l'inversion de contrôle utilisée dans les langages orientés objet. Le principe est qu'au lieu de coder en dur les dépendances entre les composants, vous déléguez l'instantiation et la gestion de ces composants au framework qui les stockera dans son <b>conteneur</b> et pourra vous les <b>fournir</b> à la demande.
           </div>
         </div>
         <div class="container little-top-margin smaller-font">
@@ -354,7 +354,7 @@ public class BeanExemple{
               <pre><code class="xml">&lt;!-- applicationContext.xml --&gt;
 &lt;?xml version = "1.0" encoding = "UTF-8"?&gt;
 &lt;beans xmlns = "..." ... &gt;
-&lt;bean name="beanExemple" class="c.i.BeanExemple"
+&lt;bean name="beanExemple" class="com.ipiecoles.BeanExemple"
   scope="prototype" init-method="init" destroy-method="cleanup"&gt;
   &lt;constructor-arg value = "Hello "/&gt;&lt;!-- OU --&gt;
   &lt;constructor-arg index = "0" value = "Hello "/&gt;&lt;!-- OU --&gt;
@@ -488,25 +488,22 @@ public class SpringConfig {
     <div id="springsimplifier-2" class="step slide">
         <div class="jumbotron jumbotron-fluid">
             <div class="container-fluid text-center">
-                <h1 class="display-3">Simplifier et automatiser (2/3)</h1>
+                <h1 class="display-3">Cas particuliers (1/2)</h1>
                 <div class="container-fluid">
                     <div class="alert alert-primary small-font" role="alert">
-                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Il est possible de simplifier les déclarations de beans et d'automatiser les injections en faisant <em>scanner</em> un package par Spring à la recherche de beans qui comporteront des annotations spécifiques.
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Voici quelques syntaxes complémentaires répondant à des besoins particuliers. Ici, injecter un bean particulier alors qu'il y en a deux déclarés qui sont du même type.
                     </div>
                 </div>
                 <div class="container-fluid small-font">
                     <div class="row">
                         <div class="col-6 text-left">
-              <pre><code class="java">//Annotation des beans à gérer par Spring avec @Component
-//(seulement pour les singletons)
-@Component
+              <pre><code class="java">@Component
 public class BeanExemple{
   //Utiliser @Resource pour injecter explicitement par nom
   @Resource(name = "autreBean1")
   private AutreBeanEx autreBean1;
   //Ici @Autowired fonctionne car @Primary a été mis
   //sur le bean principal
-  //On peut utiliser aussi @Qualifier
   @Autowired
   private AutreBeanEx autreBean;
 }
@@ -517,9 +514,6 @@ public class AutreBeanEx{
 }</code></pre></div>
                         <div class="col-6 text-left">
               <pre><code class="java">@Configuration
-//L'annotation @ComponentScan permet de dire à Spring
-//de chercher les beans dans toutes les classes de ce
-//ce package.
 @ComponentScan(basePackages = "com.ipiecoles")
 public class SpringConfig {
     @Bean(name = "autreBean1")
@@ -538,8 +532,7 @@ public class SpringConfig {
                     </div>
                 </div>
                 <div class="alert alert-primary small-font" role="alert">
-                    <i class="fa fa-icon fa-info-circle"></i>&nbsp;Les annotations <code>@Service</code>, <code>@Controller</code>, <code>@Repository</code> sont des spécialisations de
-                    <code>@Component</code> et permettent à ces beans particuliers d'être traités de manière optimale par Spring.
+                    <i class="fa fa-icon fa-info-circle"></i>&nbsp;<code>@Qualifier</code> peut être utilisé pour mettre des sortes de <em>tags</em> sur les beans afin de rendre plus souple l'injection automatique.
                 </div>
             </div>
         </div>
@@ -548,7 +541,7 @@ public class SpringConfig {
 <div id="springsimplifier-3" class="step slide">
         <div class="jumbotron jumbotron-fluid">
             <div class="container-fluid text-center">
-                <h1 class="display-3">Simplifier et automatiser (3/3)</h1>
+                <h1 class="display-3">Cas particuliers (2/2)</h1>
                 <div class="container-fluid">
                     <div class="alert alert-primary small-font" role="alert">
                         <i class="fa fa-icon fa-info-circle"></i>&nbsp;Il est possible de définir tous les éléments définis dans une configuration XML dans une configuration Java basée sur les annotations.
@@ -559,12 +552,12 @@ public class SpringConfig {
                         <div class="col-6 text-left">
               <pre><code class="java">public class AutreBeanEx{
   @PostConstruct //remplace init-method
-  public void afterInit() {
+  public void init() {
       // Instructions à exécuter après l'instanciation
   }
 
   @PreDestroy //remplace destroy-method
-  public void beforeDestroy() {
+  public void cleanup() {
       // Instructions à exécuter avant la destruction
   }
 }</code></pre></div>
@@ -581,8 +574,7 @@ public class SpringConfig {
                     </div>
                 </div>
                 <div class="alert alert-primary small-font" role="alert">
-                    <i class="fa fa-icon fa-info-circle"></i>&nbsp;Les annotations <code>@Service</code>, <code>@Controller</code>, <code>@Repository</code> sont des spécialisations de
-                    <code>@Component</code> et permettent à ces beans particuliers d'être traités de manière optimale par Spring.
+                    <i class="fa fa-icon fa-info-circle"></i>&nbsp;Les configurations par Java ou XML sont équivalentes en fonctionnalités mais ont chacune leurs avantages et inconvénients. De nos jours, la configuration Java est tout de même privilégiée.
                 </div>
             </div>
         </div>
@@ -605,12 +597,11 @@ public class SpringConfig {
 ipi.nom=IPI
 ipi.message=Hello</code></pre>
                         </div>
-
                     </div>
                 </div>
                 <div class="container-fluid small-font">
                     <div class="row text-left">
-                        <div class="col-8 pr-0">
+                        <div class="col-8">
                             <pre><code class="xml">
 &lt;beans&gt;
 &lt;bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"&gt;
@@ -625,7 +616,7 @@ ipi.message=Hello</code></pre>
 &lt;/bean&gt;
 &lt;/beans&gt;</code></pre>
                         </div>
-                        <div class="col-4" style="margin-left: -40px; margin-right: 0;">
+                        <div class="col-4 pr-0" style="margin-left: -45px; margin-right: 0;">
                             <pre><code class="java">@Configuration
 @PropertySource("classpath:app.properties")
 public class SpringConfig {
@@ -641,6 +632,9 @@ public class SpringConfig {
 }</code></pre>
                         </div>
                     </div>
+                </div>
+                <div class="alert alert-primary small-font" role="alert">
+                    <i class="fa fa-icon fa-info-circle"></i>&nbsp;Ainsi lorsque vous définissez des éléments dans votre <code>application.properties</code> (comme par exemple l'URL de connexion à la BDD), Spring récupère automatiquement ces valeurs pour paramétrer la création des beans nécessaires (à la connexion à la base de données par exemple).
                 </div>
             </div>
         </div>
@@ -681,6 +675,172 @@ public class MainApp {
       </div>
     </div>
   </div>
+
+    <div id="springboot" class="step slide">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container-fluid text-center">
+                <h1 class="display-3">Spring Boot <img src="img/spring-boot-logo.jpg" height="100" alt=""></h1>
+                <div class="container-fluid">
+                    <div class="alert alert-primary small-font" role="alert">
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;<b>Spring Boot</b> est un module optionnel du framework Spring qui permet la création aisée d'application utilisant Spring afin de :
+                    </div>
+                </div>
+                <div class="container small-font big-top-margin">
+                    <ul class="list-group">
+                        <li class="list-group-item">Démarrer très <b>rapidement</b> le développement de votre application (notamment les applications web) sans être ralenti par des éléments de configuration</li>
+                        <li class="list-group-item">Profiter de <b>librairies tierces</b> directement disponibles mais facilement désactivables ou remplaçables par l'ajout explicite de dépendances.</li>
+                        <li class="list-group-item"><b>Externaliser la configuration</b> dans des fichiers de configurations (<code>.properties</code> ou <code>YAML</code>).</li>
+                        <li class="list-group-item">Avoir des <b>fonctionnalités supplémentaires</b> comme des serveurs intégrés, du monitoring, des vérifications au niveau de la santé et de la sécurité de votre application...</li>
+                    </ul>
+                </div>
+                <div class="container-fluid big-top-margin">
+                    <div class="alert alert-primary small-font" role="alert">
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Pour démarrer un nouveau projet avec Spring Boot, il est recommandé d'utiliser
+                        <a href="https://start.spring.io" target="_blank">Spring Initializr</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="springboot-dependances" class="step slide">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container-fluid text-center">
+                <h1 class="display-3">La gestion des dépendances</h1>
+                <div class="container-fluid">
+                    <div class="alert alert-primary small-font" role="alert">
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Il est recommandé d'utilisé Spring Boot dans le cadre d'un gestionnaire de dépendance. Spring Boot supporte <code>maven</code> et <code>Gradle</code>. Exemple avec Maven :
+                    </div>
+                </div>
+                <div class="container smaller-font text-left little-top-margin">
+                    <pre><code class="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;
+	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+	&lt;parent&gt;
+		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+		&lt;version&gt;2.1.4.RELEASE&lt;/version&gt;
+		&lt;relativePath/&gt;
+	&lt;/parent&gt;
+	&lt;groupId&gt;com.ipiecoles.java&lt;/groupId&gt;
+	&lt;artifactId&gt;java240&lt;/artifactId&gt;
+	&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+	&lt;name&gt;java240&lt;/name&gt;
+	&lt;description&gt;TP sur Spring&lt;/description&gt;
+	&lt;dependencies&gt;
+		&lt;!-- Ajout de dépendances starter en fonction des besoins--&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+		&lt;!-- Dépendance à MySQL =&gt; désactivation de la BDD intégrée et configuration optimisée pour MySQL--&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;mysql&lt;/groupId&gt;
+			&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+			&lt;scope&gt;runtime&lt;/scope&gt;
+		&lt;/dependency&gt;
+		&lt;!-- Autres dépendances déclarées de manière classique--&gt;
+	&lt;/dependencies&gt;
+&lt;/project&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="springboot-main" class="step slide">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container-fluid text-center">
+                <h1 class="display-3">L'application</h1>
+                <div class="container-fluid">
+                    <div class="alert alert-primary small-font" role="alert">
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;La classe d'<b>application</b> Spring Boot est le point d'entrée de votre application.
+                    </div>
+                </div>
+                <div class="container small-font text-left little-top-margin">
+                    <pre><code class="java">package com.example.myapplication;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+<span data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Cette annotation permet de définir le package de base à faire scanner par Spring (package dans lequel se situe la classe) et active l'auto-configuration">@SpringBootApplication</span>
+//équivalent à @Configuration @EnableAutoConfiguration @ComponentScan
+public class Application {
+
+	public static void main(String[] args) {
+		<span data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Cette méthode permet d'auto-configurer l'application selon les règles par défaut ou celles surchargées par l'utilisateur et crée automatiquement l'ApplicationContext, avec les beans scannés par Spring grâce aux annotations.">SpringApplication.run(Application.class, args);</span>
+	}
+
+}</code></pre>
+                </div>
+                <div class="container-fluid little-top-margin">
+                    <div class="alert alert-primary small-font" role="alert">
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Avec cette classe, tout le travail de configuration est fait par Spring Boot, et de nombreuses fonctionnalités disponibles par défaut (base de données intégrée, logging, serveur web intégré...)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="springboot-web" class="step slide">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container-fluid text-center">
+                <h1 class="display-3">Application Web</h1>
+                <div class="container-fluid">
+                    <div class="alert alert-primary small-font" role="alert">
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Spring Boot va tenter de détecter le bon type d'<code>ApplicationContext</code> à créer en fonction des dépendances présentes. Si Spring MVC (dépendance <code>spring-boot-starter-web</code>) ou Spring WebFlux (dépendance <code>spring-boot-starter-webflux</code>) est présent, l'<code>ApplicationContext</code> créé sera celui spécialisé pour les applications Web :
+                    </div>
+                </div>
+                <div class="container small-font little-top-margin">
+                    <ul class="list-group">
+                        <li class="list-group-item">Servir automatiquement des ressources statiques.</li>
+                        <li class="list-group-item">Customiser aisément des convertisseurs automatiques des objets manipulés dans les requêtes/réponses HTTP en JSON ou en XML</li>
+                        <li class="list-group-item">Auto-configurer des moteurs de templates <code>FreeMarker</code>, <code>Groovy</code>, <code>Thymeleaf</code> ou <code>Mustache</code> (si dépendance présente). A noter que Spring Boot déconseille l'utilisation des JSP...</li>
+                        <li class="list-group-item">Déployer automatiquement l'application dans un serveur Tomcat intégré</li>
+                    </ul>
+                </div>
+                <div class="container-fluid little-top-margin">
+                    <div class="alert alert-primary small-font" role="alert">
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Il ne reste qu'à coder vos contrôleurs et à les annoter correctement !
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="springboot-cli" class="step slide">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container-fluid text-center">
+                <h1 class="display-3">Application en mode console</h1>
+                <div class="container-fluid">
+                    <div class="alert alert-primary small-font" role="alert">
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Pour créer une application en mode console capable d'injecter des beans Spring, on doit définir un bean qui implémente <code>CommandLineRunner</code>.
+                    </div>
+                </div>
+                <div class="container small-font text-left little-top-margin">
+                    <pre><code class="java">import org.springframework.boot.*;
+import org.springframework.stereotype.*;
+
+@Component
+public class MyBean implements CommandLineRunner {
+
+    @Autowired
+    private BeanExemple beanExample;
+
+    public void run(String... args) {
+        // Point d'entrée de votre application en ligne de commande.
+    }
+
+}</code></pre>
+                </div>
+                <div class="container-fluid little-top-margin">
+                    <div class="alert alert-primary small-font" role="alert">
+                        <i class="fa fa-icon fa-info-circle"></i>&nbsp;Vous pouvez mettre dans la méthode <code>run</code> ce que vous auriez mis dans votre méthode <code>main</code>. Cela est nécessaire car la méthode <code>main</code> étant statique, on ne peut réaliser d'injection à l'intérieur.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
