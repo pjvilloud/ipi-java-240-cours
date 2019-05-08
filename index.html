@@ -439,6 +439,41 @@ public class SpringConfig {
     </div>
   </div>
 
+<div id="springapplicationcontext" class="step slide">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-fluid text-center">
+        <h1 class="display-3"><code>ApplicationContext</code></h1>
+        <div class="container-fluid">
+          <div class="alert alert-primary small-font" role="alert">
+              <i class="fa fa-icon fa-info-circle"></i>&nbsp;Maintenant que nous avons définis nos <em>beans</em> et les relations entre ces derniers, voyons comment les stocker dans l'<code>ApplicationContext</code> pour qu'ils puissent être gérés par le conteneur.
+          </div>
+        </div>
+        <div class="container-fluid small-font">
+          <div class="row text-left">
+              <pre><code class="java">package com.ipiecoles;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.*;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MainApp {
+   public static void main(String[] args) {
+        //Configuration Java
+        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
+        //OU Configuration XML
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+        BeanExemple be = ctx.getBean(BeanExemple.class);
+        //be peut être utilisé dans ce main et les beans déclarés
+        //dans la configuration ont été intégrés dans le conteneur
+   }
+}</code></pre>
+          </div>      
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="springsimplifier" class="step slide">
     <div class="jumbotron jumbotron-fluid">
       <div class="container-fluid text-center">
@@ -640,41 +675,6 @@ public class SpringConfig {
         </div>
     </div>
 
-
-  <div id="springapplicationcontext" class="step slide">
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container-fluid text-center">
-        <h1 class="display-3"><code>ApplicationContext</code></h1>
-        <div class="container-fluid">
-          <div class="alert alert-primary small-font" role="alert">
-              <i class="fa fa-icon fa-info-circle"></i>&nbsp;Maintenant que nous avons définis nos <em>beans</em> et les relations entre ces derniers, voyons comment les stocker dans l'<code>ApplicationContext</code> pour qu'ils puissent être gérés par le conteneur.
-          </div>
-        </div>
-        <div class="container-fluid small-font">
-          <div class="row text-left">
-              <pre><code class="java">package com.ipiecoles;
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.*;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-public class MainApp {
-   public static void main(String[] args) {
-        //Configuration Java
-        ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
-        //OU Configuration XML
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-
-        BeanExemple be = ctx.getBean(BeanExemple.class);
-        //be peut être utilisé dans ce main et les beans déclarés
-        //dans la configuration ont été intégrés dans le conteneur
-   }
-}</code></pre>
-          </div>      
-        </div>
-      </div>
-    </div>
-  </div>
 
     <div id="springboot" class="step slide">
         <div class="jumbotron jumbotron-fluid">
