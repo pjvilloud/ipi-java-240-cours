@@ -1,5 +1,5 @@
-$.noConflict();
-
+//$.noConflict();
+//jQuery.noConflict();
 hljs.initHighlightingOnLoad();
 var nbSlides = $(".step.slide").length;
 var showPopover = new URL(window.location).searchParams.get("showPopover");
